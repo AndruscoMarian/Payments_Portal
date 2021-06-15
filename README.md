@@ -13,7 +13,7 @@ User Management Module / Page - As a portal user I wish to be able to see and ed
                 Users Page - should contain a list of all users.
                 When clicking one of them, a pop-up should appear with contact details 
                 (email, role, permissions editable)
-                I should also be able to delete an user.
+                I should also be able to delete an user
 
 Implementation tips:
     Use Angular material for design/CSS or MaterialUI for React or Tailwind (either Angular or React)
