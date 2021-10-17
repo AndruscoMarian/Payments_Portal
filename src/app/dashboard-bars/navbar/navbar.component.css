@@ -1,0 +1,15 @@
+.flex-justify{
+    @apply flex items-center justify-center
+ }
+
+.navbar{
+    height: 60px;
+}
+
+.container{
+    width: 1150px;
+    height: 100%;
+}
+.btn-height{
+    height: 30px;
+}

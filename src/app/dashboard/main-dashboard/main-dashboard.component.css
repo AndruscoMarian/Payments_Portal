@@ -1,0 +1,13 @@
+.flex-justify{
+   @apply flex items-center justify-center
+}
+
+.navbar-route{
+    width: calc(100% - 160px);
+}
+
+.route{
+    height: calc(100% - 60px);
+}
+
+

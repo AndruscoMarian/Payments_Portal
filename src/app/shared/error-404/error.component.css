@@ -1,0 +1,39 @@
+.error-center{
+    transform: translateY(-50%);
+}
+
+.btn{
+    width: 360px;
+    height: 50px;
+}
+
+.text-3d{ 
+    text-shadow:
+                    0 1px 0 rgb(190, 190, 190),
+                    0 2px 0 rgb(185,185,185),
+                    0 3px 0 rgb(180,180,180),
+                    0 4px 0 rgb(175,175,175),
+                    0 5px 0 rgb(170,170,170),
+                    0 6px 0 rgb(165,165,165),
+                    0 7px 0 rgb(160,160,160),
+                    0 1px 5px rgba(0,0,0,.05),
+                    0 3px 5px rgba(0,0,0,.10),
+                    0 5px 10px rgba(0,0,0,.15),
+                    0 7px 10px rgba(0,0,0,.20),
+                    0 10px 15px rgba(0,0,0,.25);   
+    animation-duration: 1s;
+    animation-name: jump;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;   
+}
+
+@keyframes jump {
+    from {
+        transform: translateY(0%);
+        
+    }
+  
+    to {
+        transform: translateY(-10%);
+    }
+  }

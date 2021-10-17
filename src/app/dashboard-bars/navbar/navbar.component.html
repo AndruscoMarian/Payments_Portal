@@ -1,0 +1,35 @@
+<div class="w-full h-16 bg-blue-600 navbar flex-justify">
+    <nav class="container flex items-center justify-between">
+
+      <div class="flex-justify w-auto ">
+        <input type="text" placeholder="Search..." class="bg-white px-3 w-80 h-10 rounded-l-lg btn-height text-sm text-gray-900 border-none font-medium">
+        <button class="w-10 btn-height bg-white rounded-r-lg border-none flex-justify">
+          <i class="fas fa-search text-lg text-blue-600  hover:text-yellow-500"></i>
+        </button>
+      </div>
+
+      <div class="flex-justify">
+        <div class="relative inline-block text-left">
+          <div>
+              <button type="button" 
+              class="flex-justify mr-2  text-sm font-bold drop-down-btn active:text-blue-900" 
+              (click) = 'toggleDropDown()' 
+              [ngClass]="dropDownString=='true'? 'text-blue-900':'text-white'"
+              >Albus Dumbledore  
+                <i class="fas fa-arrow-circle-down ml-2"></i>
+              </button>
+          </div>
+      
+          <div class="origin-top-right absolute right-0 mt-8 w-32 rounded-md shadow-lg bg-blue-600 ring-1 ring-black ring-opacity-5 focus:outline-none drop-down" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" *ngIf = 'dropDownSH'>
+            <div>
+              <a routerLink='profile' class="text-blue-900 font-medium block px-4 py-2 text-sm hover:text-white rounded-t-md" role="menuitem" tabindex="-1" id="menu-item-2">User Profile</a>
+              <a routerLink='/login' class="text-blue-900 block w-full text-left px-4 py-2 text-sm font-medium hover:text-white rounded-b-md" role="menuitem" tabindex="-1" id="menu-item-3">
+                Sign out
+              </a>
+            </div>
+          </div>
+        </div>
+        <img src="../../../assets/albus.PNG" alt="" class="w-10 h-10 rounded-full">
+      </div>
+    </nav>
+  </div>

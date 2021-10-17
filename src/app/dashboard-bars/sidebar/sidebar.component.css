@@ -1,0 +1,14 @@
+.flex-justify{
+    @apply flex items-center justify-center
+ }
+ 
+ .logo{
+     height: 60px;
+ }
+ 
+ .btns li{
+     width: 120px;
+    @apply h-20 rounded-2xl cursor-pointer
+ }
+
+ 
