@@ -1,0 +1,16 @@
+.box-width{
+    max-width: 1150px;
+}
+
+.page-nav-btns{
+    @apply border-gray-500 text-center cursor-pointer text-gray-500  
+    border-t absolute -top-px text-sm w-full
+}
+
+.page-nav-btns:hover{
+    @apply border-yellow-600 text-yellow-600
+}
+
+.flex-justify{
+    @apply flex items-center justify-center
+ }

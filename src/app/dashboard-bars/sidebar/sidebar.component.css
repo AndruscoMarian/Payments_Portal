@@ -11,4 +11,7 @@
     @apply h-20 rounded-2xl cursor-pointer
  }
 
+ .active{
+    @apply bg-blue-600
+ }
  

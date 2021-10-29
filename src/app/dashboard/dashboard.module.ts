@@ -9,6 +9,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
 import { DashboardBarsModule } from '../dashboard-bars/dashboard-bars.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { DashboardBarsModule } from '../dashboard-bars/dashboard-bars.module';
   ],
   imports: [
     DashboardBarsModule,
+    FormsModule,
     RouterModule.forChild([
       {
         path: 'main-dashboard',  

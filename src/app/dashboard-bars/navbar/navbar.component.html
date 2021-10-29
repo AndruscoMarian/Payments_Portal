@@ -1,5 +1,5 @@
 <div class="w-full h-16 bg-blue-600 navbar flex-justify">
-    <nav class="container flex items-center justify-between">
+    <nav class="container flex items-center justify-between mx-9">
 
       <div class="flex-justify w-auto ">
         <input type="text" placeholder="Search..." class="bg-white px-3 w-80 h-10 rounded-l-lg btn-height text-sm text-gray-900 border-none font-medium">
@@ -12,18 +12,18 @@
         <div class="relative inline-block text-left">
           <div>
               <button type="button" 
-              class="flex-justify mr-2  text-sm font-bold drop-down-btn active:text-blue-900" 
+              class="flex-justify mr-2  text-sm font-bold drop-down-btn active:text-blue-900 hover:text-yellow-500" 
               (click) = 'toggleDropDown()' 
-              [ngClass]="dropDownString=='true'? 'text-blue-900':'text-white'"
+              [ngClass]="dropDownString=='true'? 'text-yellow-500':'text-white'"
               >Albus Dumbledore  
                 <i class="fas fa-arrow-circle-down ml-2"></i>
               </button>
           </div>
       
-          <div class="origin-top-right absolute right-0 mt-8 w-32 rounded-md shadow-lg bg-blue-600 ring-1 ring-black ring-opacity-5 focus:outline-none drop-down" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" *ngIf = 'dropDownSH'>
+          <div class="origin-top-right absolute right-0 mt-5 w-32 rounded-b-md shadow-lg bg-blue-600 ring-1 ring-black ring-opacity-5 focus:outline-none drop-down" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" *ngIf = 'dropDownSH'>
             <div>
-              <a routerLink='profile' class="text-blue-900 font-medium block px-4 py-2 text-sm hover:text-white rounded-t-md" role="menuitem" tabindex="-1" id="menu-item-2">User Profile</a>
-              <a routerLink='/login' class="text-blue-900 block w-full text-left px-4 py-2 text-sm font-medium hover:text-white rounded-b-md" role="menuitem" tabindex="-1" id="menu-item-3">
+              <a routerLink='profile' class="text-white font-medium block px-4 py-2 text-sm hover:text-yellow-500 rounded-t-md" role="menuitem" tabindex="-1" id="menu-item-2">User Profile</a>
+              <a routerLink='/login' class="text-white block w-full text-left px-4 py-2 text-sm font-medium hover:text-yellow-500  rounded-b-md" role="menuitem" tabindex="-1" id="menu-item-3">
                 Sign out
               </a>
             </div>
