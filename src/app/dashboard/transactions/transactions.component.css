@@ -1,0 +1,54 @@
+.box-width{
+    max-width: 1400px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.transactions{
+    max-height: 616px;
+    overflow-y: scroll;
+}
+
+.income{
+    @apply text-green-500
+}
+.expenses{
+    @apply text-red-500
+}
+
+.transactions::-webkit-scrollbar{
+    width: 5px;
+}
+.transactions::-webkit-scrollbar-thumb{
+     background-color: rgb(37, 99, 235);
+}
+.transactions::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(245, 158, 11);
+}
+
+.even{
+    @apply  bg-gray-200
+}
+
+.odd{
+    @apply  bg-white
+}
+
+.page-nav-btns{
+    @apply border-gray-500 text-center cursor-pointer text-gray-500  
+    border-t absolute -top-px text-sm w-full
+}
+
+.page-nav-btns:hover{
+    @apply border-yellow-600 text-yellow-600
+}
+
+.flex-justify{
+    @apply flex items-center justify-center
+ }
+
+

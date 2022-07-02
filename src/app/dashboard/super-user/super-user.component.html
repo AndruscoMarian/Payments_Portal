@@ -7,12 +7,12 @@
                 <div class="text-sm w-full flex justify-between mb-1 text-gray-500 ">
                     Name 
                     <div>
-                        <i class="fas fa-long-arrow-alt-up text-sm text-gray-500 hover:text-blue-600 cursor-pointer"></i>
-                        <i class="fas fa-long-arrow-alt-down text-sm ml-1 text-gray-500 hover:text-blue-600 cursor-pointer"></i>
+                        <i (click)="sortUsers('nameDown')" class="fas fa-long-arrow-alt-down text-sm text-gray-500 hover:text-blue-600 cursor-pointer"></i>
+                        <i (click)="sortUsers('nameUp')" class="fas fa-long-arrow-alt-up text-sm ml-1 text-gray-500 hover:text-blue-600 cursor-pointer"></i>
                     </div>
                 </div>
                 <div class="flex-justify w-full relative mb-1">
-                    <input type="text" placeholder="Search..." class="bg-gray-200 w-full  rounded-lg text-sm text-blue-900 font-normal placeholder-gray-500 pl-7 border-none outline-none focus:bg-white" [(ngModel)] = 'filterName'>
+                    <input type="text" placeholder="Dragos" class="bg-gray-200 w-full  rounded-lg text-sm text-blue-900 font-normal placeholder-gray-500 pl-7 border-none outline-none focus:bg-white" [(ngModel)] = 'filterName'>
                     <div class="absolute top-1.5 left-2">
                         <i class="fas fa-search text-sm text-gray-500 w-4"></i>
                     </div>
@@ -26,12 +26,12 @@
                 <div class="text-sm w-full flex justify-between mb-1 text-gray-500 ">
                     Role
                     <div>
-                        <i class="fas fa-long-arrow-alt-up text-sm text-gray-500 hover:text-blue-600 cursor-pointer"></i>
-                        <i class="fas fa-long-arrow-alt-down text-sm ml-1 text-gray-500 hover:text-blue-600 cursor-pointer"></i>
+                        <i (click)="sortUsers('roleDown')" class="fas fa-long-arrow-alt-down text-sm text-gray-500 hover:text-blue-600 cursor-pointer"></i>
+                        <i (click)="sortUsers('roleUp')"  class="fas fa-long-arrow-alt-up text-sm ml-1 text-gray-500 hover:text-blue-600 cursor-pointer"></i>
                     </div>
                 </div>
                 <div class="flex-justify w-full relative mb-1">
-                    <input type="text" placeholder="Search..." class="bg-gray-200 w-full  rounded-lg text-sm text-blue-900 font-normal placeholder-gray-500 pl-7 border-none outline-none focus:bg-white" [(ngModel)] = 'filterRole'>
+                    <input type="text" placeholder="Developer" class="bg-gray-200 w-full  rounded-lg text-sm text-blue-900 font-normal placeholder-gray-500 pl-7 border-none outline-none focus:bg-white" [(ngModel)] = 'filterRole'>
                     <div class="absolute top-1.5 left-2">
                         <i class="fas fa-search text-sm text-gray-500 w-4"></i>
                     </div>
@@ -45,12 +45,12 @@
                 <div class="text-sm w-full flex justify-between mb-1 text-gray-500 ">
                     Permission
                     <div>
-                        <i class="fas fa-long-arrow-alt-up text-sm text-gray-500 hover:text-blue-600 cursor-pointer"></i>
-                        <i class="fas fa-long-arrow-alt-down text-sm ml-1 text-gray-500 hover:text-blue-600 cursor-pointer"></i>
+                        <i (click)="sortUsers('permDown')" class="fas fa-long-arrow-alt-down text-sm text-gray-500 hover:text-blue-600 cursor-pointer"></i>
+                        <i (click)="sortUsers('permUp')" class="fas fa-long-arrow-alt-up text-sm ml-1 text-gray-500 hover:text-blue-600 cursor-pointer"></i>
                     </div>
                 </div>
                 <div class="flex-justify w-full relative mb-1">
-                    <input type="text" placeholder="Search..." class="bg-gray-200 w-full  rounded-lg text-sm text-blue-900 font-normal placeholder-gray-500 pl-7 border-none outline-none focus:bg-white" [(ngModel)] = 'filterPerm'>
+                    <input type="text" placeholder="Genin" class="bg-gray-200 w-full  rounded-lg text-sm text-blue-900 font-normal placeholder-gray-500 pl-7 border-none outline-none focus:bg-white"   [(ngModel)] = 'filterPerm'>
                     <div class="absolute top-1.5 left-2">
                       <i class="fas fa-search text-sm text-gray-500 w-4"></i>
                     </div>
@@ -65,11 +65,17 @@
         <!-- page filters end -->
 
         <!-- page boxes start -->
-        <div class="mb-4 flex justify-around flex-wrap h-auto w-full">
-            <div class="w-52 h-52 mb-4 flex justify-between flex-col items-center p-2.5 rounded-2xl bg-white shadow-lg hover:bg-blue-900 cursor-pointer hover:text-white" *ngFor = 'let user of filteredUsers'>
-                <div class="w-full h-full overflow-hidden flex justify-center items-center rounded-2xl">
+        <div class="mb-4 flex justify-around flex-wrap h-auto w-full"
+        >
+        <!-- { *ngIf="users$ | async as users"} -->
+            <div 
+            class="w-52 h-52 mb-4 flex justify-between flex-col items-center p-2.5 rounded-2xl bg-white shadow-lg hover:bg-blue-900 hover:text-white" 
+            *ngFor = 'let user of filteredUsers'>
+                <a 
+                [routerLink]="[user.id]"
+                class="w-full h-full overflow-hidden flex justify-center items-center rounded-2xl">
                     <img [src]='user.profile_picture' [title]='user.role' class=" w-full rounded-2xl max-h-32">
-                </div>
+                </a>
                 <div class="flex justify-between flex-col w-full">
                     <p class="text-base font-medium border-b border-yellow-500 pb-0.5">{{user.first_name + ' ' + user.last_name}}</p>
                     <p class="text-sm font-normal border-b border-yellow-500 pb-0.5">Role: <span class="text-sm">{{user.role}}</span></p>
@@ -101,7 +107,16 @@
             
         </nav>
         <!-- page navigation end -->
+        <div class="mt-4">
+            <button 
+                class="w-52 h-20 items-center p-2.5 rounded-2xl bg-white shadow-lg hover:bg-blue-900 hover:text-white"
+                (click)="testNgRx()">
+                The value is: {{test}}
+            </button>
+        </div>
     </div>
     
 </div>
+
+
 

@@ -1,0 +1,81 @@
+<div class="w-auto h-auto flex items-center justify-center flex-col shadow-lg bg-white border border-gray-300 rounded-xl">
+    <div class="flex items-center justify-center flex-col p-5 relative w-full px-5">
+        <h2 class=" text-center text-xl font-bold text-blue-900">
+            Account Detail
+        </h2>
+    </div>
+    <form 
+        novalidate
+        (ngSubmit)="saveUser()"
+        [formGroup]="userForm"
+        class=" p-5 max-width h-auto flex items-center justify-between flex-col">
+
+
+            <label for="first_name" class="text-sm w-full mb-6">First name
+            <input 
+                id="first_name" 
+                type="text" 
+                formControlName="first_name"
+                [ngClass]="{'text-red-600':message.firstNameMessage.finalMessage}"
+                class="appearance-none  block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md  btn-height" >
+                <span class="text-sm text-red-600">{{message.firstNameMessage.finalMessage}}</span>
+            </label>
+        <!-- ------------------------- -->
+            <label for="last_name" class="text-sm w-full mb-6">Last name
+                <input 
+                    id="last_name" 
+                    type="text" 
+                    formControlName="last_name"
+                    [ngClass]="{'text-red-600':message.lastNameMessage.finalMessage}"
+                    class="appearance-none  block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md btn-height">
+                <span class="text-sm text-red-600">{{message.lastNameMessage.finalMessage}}</span>
+            </label>
+        <!-- ------------------------- -->
+            <label for="email" class="text-sm w-full mb-6">Email address
+                <input 
+                    id="email" 
+                    type="email"
+                    formControlName="email"
+                    [ngClass]="{'text-red-600':message.emailMessage.finalMessage}"
+                    class="appearance-none text-sm  block w-full px-3 border border-gray-300 placeholder-gray-300 text-gray-900 rounded-md btn-height">
+                <span class="text-sm text-red-600">{{message.emailMessage.finalMessage}}</span>
+            </label>
+        <!-- ------------------------- -->
+            <label for="role" class="text-sm w-full mb-6">Role
+                <input 
+                    id="role" 
+                    type="text" 
+                    formControlName="role"
+                    [ngClass]="{'text-red-600':message.roleMessage.finalMessage}"
+                    class="appearance-none block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md  btn-height">
+                <span class="text-sm text-red-600">{{message.roleMessage.finalMessage}}</span>  
+            </label>  
+        <!-- ------------------------- -->
+            <label for="permission" class="text-sm w-full mb-6">Permission
+                <input 
+                    id="permission" 
+                    type="text"
+                    formControlName="permissions"
+                    [ngClass]="{'text-red-600':message.permissionsMessage.finalMessage}"
+                    class="appearance-none block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md  btn-height">
+                <span class="text-sm text-red-600">{{message.permissionsMessage.finalMessage}}</span> 
+            </label>  
+        
+        <button 
+        [disabled]="!userForm.valid"
+        title="Save users new input"
+        type="submit" 
+        class="btn-disabled w-full text-sm mb-3 flex justify-center items-center py-1 px-4 border border-transparent font-medium rounded-md text-white bg-blue-600 hover:bg-yellow-500 focus:outline-none">
+                Save Changes
+        </button>
+        <button 
+        (click)="deleteUser()"
+        title="Delete the user"
+        type="submit" 
+        class=" w-full flex justify-center mb-3 items-center py-1 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-yellow-500 focus:outline-none">
+                Delete Account
+        </button>
+      </form>
+
+</div>
+

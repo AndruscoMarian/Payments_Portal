@@ -1,0 +1,11 @@
+.max-width{
+    width: 390px;
+}
+.btn-height{
+    height: 30px;
+}
+
+.btn-disabled:disabled{
+    background-color: grey;
+    cursor:auto;
+}

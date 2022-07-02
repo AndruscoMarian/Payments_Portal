@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, OnInit} from '@angular/core'
+
 
 @Component({
     selector:'frequency-component',
@@ -6,6 +7,26 @@ import { Component } from "@angular/core";
     styleUrls:['./frequency.component.css'],
 })
 
-export class FrequencyComponent{
+export class FrequencyComponent implements OnInit {
+    ngOnInit(): void {
+        
+    }
+ }
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

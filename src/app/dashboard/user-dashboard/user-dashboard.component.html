@@ -1,3 +1,142 @@
-<div>
-    user Dashboard
+<div class="h-full flex items-center w-full flex-col">
+    <!-- ---------------------SUMMARY START--------------------- -->
+    <div class="w-auto h-auto flex items-center flex-row mx-10 mb-6">
+        <div class=" shadow-lg py-6 p-5 bg-white border border-gray-300 rounded-xl box-width h-auto flex items-center justify-between flex-col w-auto mr-6">
+            <div class="w-full h-auto flex items-center justify-around flex-col">
+                <div class="w-36 h-36 border-8 border-yellow-500 rounded-full flex justify-center items-center flex-col text-sm text-gray-500 font-medium text-center p-2 mb-4">
+                    Summary for this 
+                    <span class="text-lg text-gray-900">day</span>
+                </div>
+                <div class="w-36 h-36 border-8 border-green-500 rounded-full flex justify-center items-center flex-col text-sm text-gray-500 font-medium text-center p-2 mb-4">
+                    Total Income
+                    <span class="text-lg text-gray-900">€{{totalIncomes}}</span>
+                </div>
+                <div class="w-36 h-36 border-8 border-red-500 rounded-full flex justify-center items-center flex-col text-sm text-gray-500 font-medium align-middle text-center p-2 mb-4">
+                    Total Expenses
+                    <span class="text-lg text-gray-900">€{{totalExpenses}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="frequency-box flex items-center justify-center shadow-lg py-6 p-5 bg-white border border-gray-300 rounded-xl box-width">
+            Frequency
+        </div>
+    </div>
+    <!-- ---------------------SUMMARY END--------------------- -->
+    <!-- ---------------------TRANSACTIONS START--------------------- -->
+    <div class=" shadow-lg py-6 p-5 bg-white border border-gray-300 rounded-xl box-width h-auto flex items-center flex-col w-auto mx-10">
+        <!-- page filters start -->
+        <div class="w-full h-auto flex items-center justify-around flex-wrap">
+            <div class="flex items-center flex-col w-64 mb-4 mr-5">
+                <div class="text-sm w-full flex justify-between mb-1 text-gray-500 ">
+                    Date
+                    <div>
+                        <i (click)="performSortTransactions('dateDown')" class="fas fa-long-arrow-alt-down text-sm text-gray-500 hover:text-blue-600 cursor-pointer"></i>
+                        <i (click)="performSortTransactions('dateUp')" class="fas fa-long-arrow-alt-up text-sm ml-1 text-gray-500 hover:text-blue-600 cursor-pointer"></i>
+                    </div>
+                </div>
+                <div class="flex-justify w-full relative">
+                    <input 
+                    [ngModel]='filterDate'
+                    (ngModelChange)="performFilterDate($event)"
+                    type="date" 
+                    class="bg-gray-200 w-full rounded-lg text-sm text-gray-900 font-normal placeholder-gray-500  border-none outline-none focus:bg-white cursor-pointer" >
+                </div>
+            </div>
+            <!-- -------------------------------------------- -->
+            <div class="flex items-center flex-col w-64 mb-4 mr-5">
+                <div class="text-sm w-full flex justify-between mb-1 text-gray-500 ">
+                    Price
+                    <div>
+                        <i (click)="performSortTransactions('priceDown')" class="fas fa-long-arrow-alt-down text-sm text-gray-500 hover:text-blue-600 cursor-pointer"></i>
+                        <i (click)="performSortTransactions('priceUp')" class="fas fa-long-arrow-alt-up text-sm ml-1 text-gray-500 hover:text-blue-600 cursor-pointer"></i>
+                    </div>
+                </div>
+                <div class="flex-justify w-full relative">
+                    <input 
+                    type="text" placeholder="€250" 
+                    class="bg-gray-200 w-full  rounded-lg text-sm text-gray-900 font-normal placeholder-gray-500 pl-7 border-none outline-none focus:bg-white"
+                    [(ngModel)]='filterPrice'>
+                    <div class="absolute top-1.5 left-2">
+                      <i class="fas fa-search text-sm text-gray-500 w-4"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- -------------------------------------------- -->
+            <div class="flex items-center flex-col w-64 mb-4 mr-5">
+                <div class="text-sm w-full flex justify-between mb-1 text-gray-500 ">
+                    VAT
+                    <div>
+                        <i (click)="performSortTransactions('vatDown')" class="fas fa-long-arrow-alt-down text-sm text-gray-500 hover:text-blue-600 cursor-pointer"></i>
+                        <i (click)="performSortTransactions('vatUp')" class="fas fa-long-arrow-alt-up text-sm ml-1 text-gray-500 hover:text-blue-600 cursor-pointer"></i>
+                    </div>
+                </div>
+                <div class="flex-justify w-full relative">
+                    <label for="category"></label>
+                    <select 
+                    class="bg-gray-200 w-full  rounded-lg text-sm text-gray-900 font-normal placeholder-gray-500 border-none outline-none focus:bg-white cursor-pointer"
+                    [ngModel]='filterVat'
+                    (ngModelChange)="performFilterVat($event)">
+                        <option value=""></option>
+                        <option value="5">5%</option>
+                        <option value="10">10%</option>
+                    </select>
+                </div>
+            </div>
+            <!-- -------------------------------------------- -->
+            <div class="flex items-center flex-col w-64 mb-4 mr-5">
+                <div class="text-sm w-full flex justify-between mb-1 text-gray-500 ">
+                    Total Price
+                    <div>
+                        <i (click)="performSortTransactions('totalPriceDown')" class="fas fa-long-arrow-alt-down text-sm text-gray-500 hover:text-blue-600 cursor-pointer"></i>
+                        <i (click)="performSortTransactions('totalPriceUp')" class="fas fa-long-arrow-alt-up text-sm ml-1 text-gray-500 hover:text-blue-600 cursor-pointer"></i>
+                    </div>
+                </div>
+                <div class="flex-justify w-full relative">
+                    <input 
+                    type="text" placeholder="€275" 
+                    class="bg-gray-200 w-full  rounded-lg text-sm text-gray-900 font-normal placeholder-gray-500 pl-7 border-none outline-none focus:bg-white"
+                    [(ngModel)]='filterTotalPrice'>
+                    <div class="absolute top-1.5 left-2">
+                      <i class="fas fa-search text-sm text-gray-500 w-4"></i>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+        <!-- page filters end -->
+
+        <!-- page transactions start -->
+        <div class="transactions flex items-center justify-around flex-wrap h-auto w-full">
+            <ul>
+                <li  *ngFor='let transaction of filteredTransactions;let i = index' 
+                    [ngClass]='{ "even" : i % 2 === 0, "odd": i%2 !== 0}'>
+                    <ul class=" w-full flex justify-around flex-wrap h-auto text-gray-900 hover:bg-blue-900 hover:text-white">
+                        <li class="w-64 h-7 mr-5 text-left font-medium text-sm px-2 py-1.5">
+                            {{transaction.date}}
+                        </li>
+                        <li 
+                        [ngClass]='{ "expenses" : transaction.category === "expenses", "income" : transaction.category === "income"}'
+                        class="w-64 h-7 mr-5 text-left font-medium text-sm px-2 py-1.5">
+                            {{transaction.price | currency:'EUR':'symbol':'1.2-2'}}
+                        </li>
+                        <li class="w-64 h-7 mr-5 text-left font-medium text-sm px-2 py-1.5">
+                            {{ transaction.VAT + '%'}}
+                        </li>
+                        <li class="w-64 h-7 mr-4 text-left font-medium text-sm px-2 py-1.5">
+                            {{transaction.total_price | currency:'EUR':'symbol':'1.2-2'}}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+                        
+        </div>
+        <!-- page transactions end -->
+      
+    </div>
+    <!-- ---------------------TRANSACTIONS END--------------------- -->
+
 </div>
+
+
+

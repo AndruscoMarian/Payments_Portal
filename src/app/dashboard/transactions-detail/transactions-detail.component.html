@@ -1,0 +1,184 @@
+<div class="w-auto h-auto flex items-center justify-center flex-col shadow-lg bg-white border border-gray-300 rounded-xl">
+    <div class="flex items-center justify-center flex-col p-5 relative w-full px-5">
+        <h2 class=" text-center text-xl font-bold text-blue-900">
+            Transaction Detail
+        </h2>
+    </div>
+    <form 
+        novalidate
+        (ngSubmit)="saveTransaction()"
+        [formGroup]="transactionForm"
+        class=" p-5 max-width h-auto flex items-center justify-between flex-col">
+
+        <div class="w-full h-auto flex items-center justify-between flex-row">
+            <label for="id" class="text-sm w-45 mb-4">Transaction ID
+                <input 
+                    id="id" 
+                    type="text" 
+                    formControlName="id"
+                    [ngClass]="{'text-red-600':message.idMessage.finalMessage}"
+                    class="appearance-none bg-gray-300 block w-full px-3 border border-gray-300 text-sm text-gray-900 rounded-md  btn-height">
+                    <span class="text-sm text-red-600">{{message.idMessage.finalMessage}}</span>
+            </label>
+            <!-- ------------------------- -->
+            <label for="date" class="text-sm w-45 mb-4">Date
+                <input 
+                    id="date" 
+                    type="text" 
+                    formControlName="date"
+                    [ngClass]="{'text-red-600':message.dateMessage.finalMessage}"
+                    class="appearance-none bg-gray-300  block w-full px-3 border border-gray-300 text-sm text-gray-900 rounded-md btn-height">
+                <span class="text-sm text-red-600">{{message.dateMessage.finalMessage}}</span>
+            </label>    
+        </div>
+        <!-- ------------------------- -->
+        <div class="w-full h-auto flex items-center justify-between flex-row">
+            <label for="price" class="text-sm w-45 mb-4">Price
+                <input 
+                    id="price" 
+                    type="text"
+                    formControlName="price"
+                    [ngClass]="{'text-red-600':message.priceMessage.finalMessage}"
+                    class="appearance-none text-sm  block w-full px-3 border border-gray-300 text-gray-900 rounded-md btn-height">
+                <span class="text-sm text-red-600">{{message.priceMessage.finalMessage}}</span>
+            </label>
+        <!-- ------------------------- -->
+            <label for="VAT" class="text-sm w-45 mb-4">VAT
+                <input 
+                    id="VAT" 
+                    type="text" 
+                    formControlName="VAT"
+                    [ngClass]="{'text-red-600':message.VATMessage.finalMessage}"
+                    class="appearance-none bg-gray-300 block w-full px-3 border border-gray-300 text-sm text-gray-900 rounded-md  btn-height">
+                <span class="text-sm text-red-600">{{message.VATMessage.finalMessage}}</span>  
+            </label>  
+        </div>
+        <!-- ------------------------- -->
+        <label for="total_price" class="text-sm w-full mb-4">Total Price
+            <input 
+                id="total_price" 
+                type="text"
+                formControlName="total_price"
+                [ngClass]="{'text-red-600':message.totalPriceMessage.finalMessage}"
+                class="appearance-none bg-gray-300 block w-full px-3 border border-gray-300 text-sm text-gray-900 rounded-md  btn-height">
+            <span class="text-sm text-red-600">{{message.totalPriceMessage.finalMessage}}</span> 
+        </label>  
+        <!------------------------ Products List Start -------------------->
+        <div class="text-sm w-full mb-4 flex items-center justify-between flex-col">
+            <span class=" w-full items-start">Products</span> 
+            <ul class="products-list w-full flex items-center flex-col">
+                <li class="w-full flex items-center justify-between flex-col mb-4">
+                    <label for="productDescription" class="text-sm w-full mb-2">
+                        <input 
+                            id="productDescription" 
+                            type="text"
+                            formControlName="productDescription"
+                            placeholder="Description"                            
+                            class="appearance-none block w-full px-3 border border-gray-300 text-sm text-gray-900 rounded-md  btn-height">
+                        <span class="text-sm text-red-600">{{message.productDescription.finalMessage}}</span> 
+                    </label>  
+                    <div class="text-sm w-full flex items-center justify-between flex-row">
+                        <label for="pieces" class="text-sm w-45">
+                            <input 
+                                id="pieces" 
+                                type="text" 
+                                formControlName="pieces"
+                                placeholder="Pieces"                                
+                                class="appearance-none  block w-full px-3 border border-gray-300 text-sm text-gray-900 rounded-md btn-height">
+                            <span class="text-sm text-red-600">{{message.pieces.finalMessage}}</span>
+                        </label>    
+                        <label for="productPrice" class="text-sm w-45">
+                            <input 
+                                id="productPrice" 
+                                type="text" 
+                                formControlName="productPrice"
+                                placeholder="Price"                                
+                                class="appearance-none  block w-full px-3 border border-gray-300 text-sm text-gray-900 rounded-md btn-height">
+                            <span class="text-sm text-red-600">{{message.productPrice.finalMessage}}</span>
+                        </label>    
+                    </div>
+                </li>
+                <li class="w-full flex items-center justify-between flex-col mb-4">
+                    <label for="productDescription" class="text-sm w-full mb-2">
+                        <input 
+                            id="productDescription" 
+                            type="text"
+                            formControlName="productDescription"
+                            placeholder="Description"                            
+                            class="appearance-none block w-full px-3 border border-gray-300 text-sm text-gray-900 rounded-md  btn-height">
+                        <span class="text-sm text-red-600">{{message.productDescription.finalMessage}}</span> 
+                    </label>  
+                    <div class="text-sm w-full flex items-center justify-between flex-row">
+                        <label for="pieces" class="text-sm w-45">
+                            <input 
+                                id="pieces" 
+                                type="text" 
+                                formControlName="pieces"
+                                placeholder="Pieces"                                
+                                class="appearance-none  block w-full px-3 border border-gray-300 text-sm text-gray-900 rounded-md btn-height">
+                            <span class="text-sm text-red-600">{{message.pieces.finalMessage}}</span>
+                        </label>    
+                        <label for="productPrice" class="text-sm w-45">
+                            <input 
+                                id="productPrice" 
+                                type="text" 
+                                formControlName="productPrice"
+                                placeholder="Price"                                
+                                class="appearance-none  block w-full px-3 border border-gray-300 text-sm text-gray-900 rounded-md btn-height">
+                            <span class="text-sm text-red-600">{{message.productPrice.finalMessage}}</span>
+                        </label>    
+                    </div>
+                </li>
+                <li class="w-full flex items-center justify-between flex-col mb-4">
+                    <label for="productDescription" class="text-sm w-full mb-2">
+                        <input 
+                            id="productDescription" 
+                            type="text"
+                            formControlName="productDescription"
+                            placeholder="Description"                            
+                            class="appearance-none block w-full px-3 border border-gray-300 text-sm text-gray-900 rounded-md  btn-height">
+                        <span class="text-sm text-red-600">{{message.productDescription.finalMessage}}</span> 
+                    </label>  
+                    <div class="text-sm w-full flex items-center justify-between flex-row">
+                        <label for="pieces" class="text-sm w-45">
+                            <input 
+                                id="pieces" 
+                                type="text" 
+                                formControlName="pieces"
+                                placeholder="Pieces"                                
+                                class="appearance-none  block w-full px-3 border border-gray-300 text-sm text-gray-900 rounded-md btn-height">
+                            <span class="text-sm text-red-600">{{message.pieces.finalMessage}}</span>
+                        </label>    
+                        <label for="productPrice" class="text-sm w-45">
+                            <input 
+                                id="productPrice" 
+                                type="text" 
+                                formControlName="productPrice"
+                                placeholder="Price"                                
+                                class="appearance-none  block w-full px-3 border border-gray-300 text-sm text-gray-900 rounded-md btn-height">
+                            <span class="text-sm text-red-600">{{message.productPrice.finalMessage}}</span>
+                        </label>    
+                    </div>
+                </li>
+            </ul>
+        </div>
+         <!------------------------ Products List End -------------------->
+        
+        <button 
+        [disabled]="!transactionForm.valid"
+        title="Save users new input"
+        type="submit" 
+        class="btn-disabled w-full text-sm mb-3 flex justify-center items-center py-1 px-4 border border-transparent font-medium rounded-md text-white bg-blue-600 hover:bg-yellow-500 focus:outline-none">
+                Save Changes
+        </button>
+        <button 
+        (click)="deleteTransaction()"
+        title="Delete the user"
+        type="submit" 
+        class=" w-full flex justify-center mb-3 items-center py-1 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-yellow-500 focus:outline-none">
+                Delete Transaction
+        </button>
+      </form>
+
+</div>
+

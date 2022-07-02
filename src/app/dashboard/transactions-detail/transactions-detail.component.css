@@ -1,0 +1,30 @@
+.max-width{
+    width: 390px;
+}
+.btn-height{
+    height: 30px;
+}
+
+.btn-disabled:disabled{
+    background-color: grey;
+    cursor:auto;
+}
+
+.w-45{
+    width: 45%;
+}
+
+.products-list{
+    max-height: 330px;
+    overflow-y: scroll;
+}
+
+.products-list::-webkit-scrollbar{
+    width: 5px;
+}
+.products-list::-webkit-scrollbar-thumb{
+     background-color: rgb(37, 99, 235);
+}
+.products-list::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(245, 158, 11);
+}

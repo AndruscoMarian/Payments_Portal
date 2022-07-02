@@ -1,21 +1,21 @@
-<div class="flex-justify h-full w-full test">
+<div class="flex-justify h-screen w-full test">
 
   <!-- Start Sidebar -->
-  <div class="h-full">
+  <div class="h-screen">
     <sidebar-component></sidebar-component>
   </div>
   <!-- End Sidebar -->
 
-  <div class="navbar-route h-screen flex-justify flex-col test">
+  <div class="navbar-route h-screen flex-justify flex-col test relative">
     <!-- Start Navbar -->
-    <div class="w-full">
+    <div class="w-full mb-10 top-0 sticky">
       <navbar-component ></navbar-component>
     </div>
     <!-- End Navbar -->
 
 
     <!-- Start Routes -->
-    <div class="route w-full mt-10 flex justify-center">
+    <div class="route w-full flex justify-center">
       <router-outlet></router-outlet>
     </div>
     <!-- End Routes -->

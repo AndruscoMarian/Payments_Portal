@@ -9,6 +9,12 @@ import { AccountModule } from './account/account.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AppRoutingModule } from './app-routing.module';
 
+// NgRx
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+
 
 
 
@@ -23,6 +29,13 @@ import { AppRoutingModule } from './app-routing.module';
     AccountModule,
     DashboardModule,
     AppRoutingModule,
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ 
+      name:'Payment Portal',
+      maxAge: 25, 
+      logOnly: environment.production 
+    }),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent]
