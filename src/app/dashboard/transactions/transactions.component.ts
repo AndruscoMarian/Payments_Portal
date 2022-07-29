@@ -15,7 +15,7 @@ import * as ToggleBtnActions from '../state_tran_btn/transaction_btn.actions';
 
 import * as TransactionsActions from '../state_transactions/transactions_actions';
 import { Observable } from 'rxjs';
-import * as TransactionsSelectors from '../state_transactions/transactions_reducer';
+import * as TransactionsSelectors from '../state_transactions/transactions_selectors';
 
 @Component({
   selector: 'transactions-component',
@@ -157,11 +157,11 @@ export class TransactionsComponent implements OnInit{
     });
 
 // ngrx------------------------------------------ngrx
-this.store.dispatch(TransactionsActions.loadTransactions());
+  this.store.dispatch(TransactionsActions.loadTransactions());
 
-this.transactionsStatus$ = this.store.select(TransactionsSelectors.getTransactionsStatus); 
-this.transactions$ = this.store.select(TransactionsSelectors.getTransactionsList);
-this.errorMessage$ = this.store.select(TransactionsSelectors.getTransactionsListError);
+  this.transactionsStatus$ = this.store.select(TransactionsSelectors.getTransactionsStatus); 
+  this.transactions$ = this.store.select(TransactionsSelectors.getTransactionsList);
+  this.errorMessage$ = this.store.select(TransactionsSelectors.getTransactionsListError);
 
 // console.log(this.transactions$)
 // -----------------------------------------------------------------------
@@ -191,7 +191,7 @@ this.errorMessage$ = this.store.select(TransactionsSelectors.getTransactionsList
   )
 // ngrx------------------------------------------ngrx
 
-  }
+}
 
 
 

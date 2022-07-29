@@ -1,17 +1,18 @@
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { EMPTY, Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { IUser } from 'src/app/dashboard/utilities/users/User';
 import { UsersService } from 'src/app/dashboard/utilities/users/UsersSerice';
 import { FilePreviewOverlayRef } from '../overlay/file-preview-overlay-ref';
 import { FilePreviewOverlayService } from '../overlay/file-preview-overlay.service';
-import { getLoadUsers, getLoadUsersError, getShowTestUserComponent, State } from '../state/user.reducer';
 import { UsersUtility } from '../utilities/users-utility/UsersUtility';
-import * as UsersActions from '../state/user.action';
 
+
+import { State } from '../state_users/users_reducer';
+import * as UsersActions from '../state_users/users_actions'
+import * as UsersSelectors from '../state_users/users_selectors'
 
 @Component({
   selector: 'super-user-component',
@@ -24,28 +25,9 @@ export class SuperUserComponent implements OnInit{
   users:IUser[]=[];
   userId:number | null = null;
 
-  test: boolean = true;
+  usersStatus$!: Observable<string>;
   users$!: Observable<IUser[]>;
-  error$!: Observable<string>;
-  // sortUserParam: string = '';
-
-
-  // users$ = this.usersService.users$
-  //   .pipe(
-  //     map(i =>  this.users = i),
-  //     map(i =>  this.filteredUsers = this.users),
-  //     tap(i => console.log('Those are the users: ',i)),
-  //     catchError(err => {
-  //       this.errorMessage = err;
-  //       return EMPTY;
-  //     })
-  //   );
-
-  // filteredUsers$ = this.usersService.users$
-  //   .pipe(
-  //     map(users => 
-  //       users.filter(user => this.performSort(this.sortUserParam)))
-  //   );
+  errorMessage$!: Observable<string>;
 
   private _filterName:string = '';
  
@@ -79,7 +61,8 @@ export class SuperUserComponent implements OnInit{
               private usersUtility:UsersUtility,
               private filePreviewOverlayService: FilePreviewOverlayService,
               private route:ActivatedRoute,
-              private store: Store<State>,
+              // ngrx
+              private store: Store<State>
               ) { }
 
 
@@ -109,10 +92,6 @@ export class SuperUserComponent implements OnInit{
     let dialogRef: FilePreviewOverlayRef = this.filePreviewOverlayService.open({}, this.userId );
   }
 
-  testNgRx(): void{
-    this.store.dispatch(UsersActions.toggleUserComponent());
-  }
-
   ngOnInit():void{
     this.usersService.getUsers().subscribe({
       next: users=>{
@@ -122,18 +101,12 @@ export class SuperUserComponent implements OnInit{
       error: err => this.errorMessage = err
     });
 
-    
-    // this.store.dispatch(UsersActions.loadUsers());
-    
-    // this.users$ = this.store.select(getLoadUsers);
-
-    // this.error$ = this.store.select(getLoadUsersError);
-
-    // unsubscribe
-    this.store.select(getShowTestUserComponent).subscribe(
-      usersTest => this.test = usersTest
-    )
-    
+ // ngrx------------------------------------------ngrx
+    this.store.dispatch(UsersActions.loadUsers());
+    this.usersStatus$ = this.store.select(UsersSelectors.getUsersStatus); 
+    this.users$ = this.store.select(UsersSelectors.getUsersList);
+    this.errorMessage$ = this.store.select(UsersSelectors.getUsersError);
+ // ngrx------------------------------------------ngrx
 
     this.route.paramMap.subscribe(
     params => {

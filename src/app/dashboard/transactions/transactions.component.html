@@ -219,28 +219,28 @@
             *ngIf="transactions$ | async as transactions" 
             class="transactions mb-8 flex items-center justify-around flex-wrap h-auto w-full">
             <ul>
-                <li  *ngFor='let transaction of transactions; let i = index' 
+                <li  *ngFor='let transaction2 of transactions; let i = index' 
                     [ngClass]='{ "even" : i % 2 === 0, "odd": i%2 !== 0}'>
-                    <a class="cursor-pointer" [routerLink]="[transaction.id]">
+                    <a class="cursor-pointer" [routerLink]="[transaction2.id]">
                         <ul class=" w-full flex justify-around flex-wrap h-auto text-gray-900 hover:bg-blue-900 hover:text-white">
                             <li class="w-52 h-7 mr-4 text-left font-medium text-sm px-2 py-1.5">
-                                {{transaction.id}}
+                                {{transaction2.id}}
                             </li>
                             <li class="w-52 h-7 mr-4 text-left font-medium text-sm px-2 py-1.5">
-                                {{transaction.date}}
+                                {{transaction2.date}}
                             </li>
                             <li class="w-52 h-7 mr-4 text-left font-medium text-sm px-2 py-1.5">
-                                {{transaction.category}}
+                                {{transaction2.category}}
                             </li>
-                            <li [ngClass]='{ "expenses" : transaction.category === "expenses", "income" : transaction.category === "income"}'
+                            <li [ngClass]='{ "expenses" : transaction2.category === "expenses", "income" : transaction2.category === "income"}'
                                 class="w-52 h-7 mr-4 text-left font-medium text-sm px-2 py-1.5">
-                                {{transaction.price | currency:'EUR':'symbol':'1.2-2'}}
+                                {{transaction2.price | currency:'EUR':'symbol':'1.2-2'}}
                             </li>
                             <li class="w-52 h-7 mr-4 text-left font-medium text-sm px-2 py-1.5">
-                                {{transaction.VAT + '%'}}
+                                {{transaction2.VAT + '%'}}
                             </li>
                             <li class="w-52 h-7 mr-4 text-left font-medium text-sm px-2 py-1.5">
-                                {{transaction.total_price | currency:'EUR':'symbol':'1.2-2'}}
+                                {{transaction2.total_price | currency:'EUR':'symbol':'1.2-2'}}
                             </li>
                         </ul>
                     </a>

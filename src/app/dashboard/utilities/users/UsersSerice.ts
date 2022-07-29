@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
-import { tap, catchError, take, map, shareReplay } from "rxjs/operators";
+import { tap, catchError, take, map, shareReplay, debounceTime, delay } from "rxjs/operators";
 import { Constants } from "src/app/constants/Constants";
 import { IUser } from "./User";
 
@@ -31,7 +31,8 @@ export class UsersService {
             .pipe(
                 tap(i => console.log('Users: ', JSON.stringify(i))),
                 catchError(this.handleError),
-                take(1)
+                take(1),
+                delay(500)
             );
     }
 

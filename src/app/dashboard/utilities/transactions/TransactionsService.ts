@@ -20,7 +20,7 @@ export class TransactionsService {
             tap(data => console.log('Transactions')),
             catchError(this.handleError),
             take(1),
-            delay(3000)
+            delay(500)
         );
     }
 

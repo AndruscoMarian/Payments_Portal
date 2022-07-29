@@ -1,4 +1,4 @@
-import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
+import { createReducer, on } from "@ngrx/store";
 import * as TransactionsLoad from './transactions_actions'
 import { RequestStatus } from "src/app/constants/Constants";
 
@@ -25,24 +25,6 @@ const transactionsInitState: ITransactions = {
     error: ''
 }
 // ---------------------------------------InitialState
-// ---------------------------------------Selectors
-const getTransactions = createFeatureSelector<ITransactions>('transactions');
-
-export const getTransactionsStatus = createSelector(
-    getTransactions,
-    state => state.status
-);
-
-export const getTransactionsList = createSelector(
-    getTransactions,
-    state => state.transactions
-);
-
-export const getTransactionsListError = createSelector(
-    getTransactions,
-    state => state.error
-);
-// ---------------------------------------Selectors
 // ---------------------------------------Reducer
 export const transactions = createReducer<ITransactions>(
     transactionsInitState,

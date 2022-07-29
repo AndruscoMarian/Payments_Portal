@@ -31,15 +31,15 @@ import { TransactionFilePreviewOverlayService } from './transaction_overlay/tran
 
 // NgRx
 import { StoreModule } from '@ngrx/store';
-import { usersReducer, userToggleReducer } from './state/user.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { UsersEffects } from './state/user.effects';
 import { 
         // transactionBtn, 
         transactionBtnActions, 
       } from './state_tran_btn/transaction_btn.reducer';
 import { transactions } from './state_transactions/transactions_reducer';
 import { TransactionsEffects } from './state_transactions/transactions_effects';
+
+import { users } from './state_users/users_reducer';
 
 @NgModule({
   declarations: [
@@ -88,14 +88,13 @@ import { TransactionsEffects } from './state_transactions/transactions_effects';
           {path: '', redirectTo:'user', pathMatch:'full'}
         ]
     ),
-    StoreModule.forFeature('userTest',userToggleReducer),
-    StoreModule.forFeature('users',usersReducer),
+    StoreModule.forFeature('users', users),
     StoreModule.forFeature('transactionBtn',
       // transactionBtn,
       transactionBtnActions
     ),
     StoreModule.forFeature('transactions', transactions),
-    EffectsModule.forFeature([UsersEffects, TransactionsEffects])
+    EffectsModule.forFeature([TransactionsEffects])
   ]
 })
 export class DashboardModule { }
