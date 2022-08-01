@@ -106,25 +106,25 @@
             </div>
             
         </nav>
-        <!-- page navigation end -->
-    </div>
-    <div 
-    *ngIf="users$ | async as users" 
-    class="w-auto h-auto">
         <div 
-        class="w-52 h-52 mb-4 flex justify-between flex-col items-center p-2.5 rounded-2xl bg-white shadow-lg hover:bg-blue-900 hover:text-white mt-10" 
-        *ngFor='let user2 of users'>
-            <a 
-            [routerLink]="[user2.id]"
-            class="w-full h-full overflow-hidden flex justify-center items-center rounded-2xl">
-                <img [src]='user2.profile_picture' [title]='user2.role' class=" w-full rounded-2xl max-h-32">
-            </a>
-            <div class="flex justify-between flex-col w-full">
-                <p class="text-base font-medium border-b border-yellow-500 pb-0.5">{{user2.first_name + ' ' + user2.last_name}}</p>
-                <p class="text-sm font-normal border-b border-yellow-500 pb-0.5">Role: <span class="text-sm">{{user2.role}}</span></p>
-                <p class="text-sm font-normal ">Permision: <span class="text-sm">{{user2.permissions}}</span></p>
+            *ngIf="users$ | async as users"
+            class="mb-4 flex justify-around flex-wrap h-auto w-full mt-10">
+            <div 
+            class="w-52 h-52 mb-4 flex justify-between flex-col items-center p-2.5 rounded-2xl bg-white shadow-lg hover:bg-blue-900 hover:text-white mt-10" 
+            *ngFor='let user2 of users'>
+                <a 
+                [routerLink]="[user2.id]"
+                class="w-full h-full overflow-hidden flex justify-center items-center rounded-2xl">
+                    <img [src]='user2.profile_picture' [title]='user2.role' class=" w-full rounded-2xl max-h-32">
+                </a>
+                <div class="flex justify-between flex-col w-full">
+                    <p class="text-base font-medium border-b border-yellow-500 pb-0.5">{{user2.first_name + ' ' + user2.last_name}}</p>
+                    <p class="text-sm font-normal border-b border-yellow-500 pb-0.5">Role: <span class="text-sm">{{user2.role}}</span></p>
+                    <p class="text-sm font-normal ">Permision: <span class="text-sm">{{user2.permissions}}</span></p>
+                </div>
             </div>
         </div>
+        <!-- page navigation end -->
     </div>
     
 </div>

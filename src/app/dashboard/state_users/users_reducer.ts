@@ -7,7 +7,7 @@ import { IUser } from "../utilities/users/User";
 
 // ---------------------------------------Interfaces
 export interface State extends AppState.State {
-    Transactions: IUsers;
+    Users: IUsers;
 };
 
 export interface IUsers {

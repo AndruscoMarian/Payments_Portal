@@ -40,6 +40,7 @@ import { transactions } from './state_transactions/transactions_reducer';
 import { TransactionsEffects } from './state_transactions/transactions_effects';
 
 import { users } from './state_users/users_reducer';
+import { UsersEffects } from './state_users/users_effects';
 
 @NgModule({
   declarations: [
@@ -91,10 +92,9 @@ import { users } from './state_users/users_reducer';
     StoreModule.forFeature('users', users),
     StoreModule.forFeature('transactionBtn',
       // transactionBtn,
-      transactionBtnActions
-    ),
+      transactionBtnActions),
     StoreModule.forFeature('transactions', transactions),
-    EffectsModule.forFeature([TransactionsEffects])
+    EffectsModule.forFeature([UsersEffects, TransactionsEffects])
   ]
 })
 export class DashboardModule { }
