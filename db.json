@@ -1029,14 +1029,18 @@
   ],
   "users": [
     {
-      "first_name": "Catalin",
+      "first_name": "Bogdan",
       "last_name": "Adaman",
       "id": 1007,
-      "email": "Catalin_Para@gmail.com",
+      "email": "Bogdan_Adaman@gmail.com",
       "password": "poilkjmnb",
       "profile_picture": "../../../assets/b7.jpg",
       "role": "User",
-      "permissions": "Genin"
+      "permissions": "Genin",
+      "changePassword": {
+        "newPassword": "",
+        "confirmedPassword": ""
+      }
     },
     {
       "first_name": "Norbi",

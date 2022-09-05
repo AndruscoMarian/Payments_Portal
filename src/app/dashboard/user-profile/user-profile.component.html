@@ -1,46 +1,181 @@
 <div class="h-full flex items-center w-full flex-col">
 
-      <form class=" shadow-lg py-6 p-5 bg-white border border-gray-300 rounded-xl max-width h-auto flex items-center justify-between flex-col">
+      <form 
+      novalidate
+      (ngSubmit)="save()"
+      [formGroup]="profileForm"
+      class=" shadow-lg py-6 p-5 bg-white border border-gray-300 rounded-xl max-width h-auto flex items-center justify-between flex-col"
+      >
+        <!-- Profile -->
         <div class="flex flex-col h-auto items-center mb-6">
             <p class=" text-center text-2xl font-bold text-blue-900 mb-6">
                 Profile
             </p>
-            <img src="../../../assets/albus.PNG" alt="" class="w-32 h-32 rounded-full mb-2">
-            <button class="font-normal text-blue-600 hover:text-yellow-500 text-sm" >
-                Change profile picture
-            </button>
+            <img src={{profilePicture}} alt="Profile picture" class="w-32 h-32 rounded-full mb-2 profile-picture">
         </div>
 
-        <div class="w-full mb-6">
-            <label for="text" class="text-sm ">First name</label>
-            <input id="firs-name" name="text" type="text" autocomplete="text" class="appearance-none  relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md focus:border-blue-500 focus:z-10 btn-height" placeholder="Albus">
+        <!-- First name -->
+        <div class="w-full mb-4">
+            <label for="first-name" class="text-sm ">First name</label>
+            <input 
+                id="first-name" 
+                type="text" 
+                placeholder="Albus"
+                formControlName="first_name"
+                class="appearance-none  relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md hover:border-blue-500 btn-height" 
+            >
+            <span *ngIf="profileForm.get('first_name')?.touched && profileForm.get('first_name')?.dirty" class="text-sm text-red-600">
+                <span *ngIf="profileForm.get('first_name')?.hasError('required')">
+                    Please write your first name.
+                </span>
+                <span *ngIf="profileForm.get('first_name')?.hasError('minlength')">
+                    The minimum length was not added.
+                </span>
+            </span>
         </div>
-        <div class="w-full mb-6">
-            <label for="text" class="text-sm ">Last name</label>
-            <input id="last-name" name="text" type="text" autocomplete="text" class="appearance-none  relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md focus:border-blue-500 focus:z-10 btn-height" placeholder="Dumbledore">
+
+        <!-- Last name -->
+        <div class="w-full mb-4">
+            <label for="last-name" class="text-sm ">Last name</label>
+            <input 
+                id="last-name" 
+                type="text" 
+                placeholder="Dumbledore"
+                formControlName="last_name"
+                class="appearance-none  relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md hover:border-blue-500 btn-height" 
+            >
+            <span *ngIf="profileForm.get('last_name')?.touched && profileForm.get('last_name')?.dirty" class="text-sm text-red-600">
+                <span *ngIf="profileForm.get('last_name')?.hasError('required')">
+                    Please write your last name.
+                </span>
+                <span *ngIf="profileForm.get('last_name')?.hasError('minlength')">
+                    The minimum length was not added.
+                </span>
+            </span>
         </div>
-        <div class="w-full mb-6">
-            <label for="text" class="text-sm ">Role</label>
-            <input id="role" name="text" type="text" autocomplete="text" class="appearance-none  relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md focus:border-blue-500 focus:z-10 btn-height" placeholder="Master">
+
+        <!-- Role -->
+        <div class="w-full mb-4">
+            <label for="role" class="text-sm ">Role</label>
+            <input 
+                id="role" 
+                type="text" 
+                placeholder="Master"
+                formControlName="role" 
+                class="appearance-none relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md hover:border-blue-500 btn-height" 
+            >
+            <span *ngIf="profileForm.get('role')?.touched && profileForm.get('role')?.dirty" class="text-sm text-red-600">
+                <span *ngIf="profileForm.get('role')?.hasError('required')">
+                    Please write your role.
+                </span>
+                <span *ngIf="profileForm.get('role')?.hasError('maxlength')">
+                    The maximum length was exceeded.
+                </span>
+            </span>
         </div>
-        <div class="w-full mb-6">
-            <label for="email-address" class="text-sm ">Email address</label>
-            <input id="email-address" name="email" type="email" autocomplete="email" class="appearance-none text-sm  relative block w-full px-3 border border-gray-300 placeholder-gray-300 text-gray-900 rounded-md focus:border-blue-500 focus:z-10 btn-height" placeholder="darius@gmail.com">
+
+        <!-- Email -->
+        <div class="w-full mb-4">
+            <label for="email" class="text-sm ">Email address</label>
+            <input 
+                id="email" 
+                type="email" 
+                placeholder="darius@gmail.com"
+                formControlName="email" 
+                class="appearance-none text-sm  relative block w-full px-3 border border-gray-300 placeholder-gray-300 text-gray-900 rounded-md hover:border-blue-500 btn-height" 
+            >
+            <span *ngIf="profileForm.get('email')?.touched && profileForm.get('email')?.dirty" class="text-sm text-red-600">
+                <span *ngIf="profileForm.get('email')?.hasError('required')">
+                    Email is required.
+                </span>
+                <span *ngIf="profileForm.get('email')?.hasError('email')">
+                    You must enter a valid.
+                </span>
+            </span>
         </div>
-        <div class="w-full mb-6">
-            <label for="password" class="text-sm ">New Password</label>
-            <input id="new-password" name="password" type="password" autocomplete="current-password" class="appearance-none relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md  focus:border-blue-500 focus:z-10 btn-height"   placeholder="1234qwe,.">
+
+        <!-- Current Password -->
+        <div class="w-full mb-4">
+            <label for="current-password" class="text-sm ">Current Password</label>
+            <input 
+                id="current-password" 
+                type="password" 
+                placeholder="123456789"
+                formControlName="password" 
+                class="appearance-none bg-gray-300 relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md btn-height"   
+            >
+            <span *ngIf="profileForm.get('password')?.touched && profileForm.get('password')?.dirty" class="text-sm text-red-600">
+                <span *ngIf="profileForm.get('password')?.hasError('required')">
+                    Please write your confirmation password.
+                </span>
+                <span *ngIf="profileForm.get('password')?.hasError('minlength')">
+                    The minimum length was not added.
+                </span>
+                <span *ngIf="profileForm.get('password')?.hasError('maxlength')">
+                    The maximum length was exceeded.
+                </span>
+            </span>
         </div>
-        <div class="w-full mb-6">
-            <label for="password" class="text-sm ">Confirm Password</label>
-            <input id="conf-password" name="password" type="password" autocomplete="current-password" class="appearance-none relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md  focus:border-blue-500 focus:z-10 btn-height"   placeholder="1234qwe,.">
+
+        <div class="w-full" formGroupName="changePassword">
+            <!-- New Password -->
+            <div class="w-full mb-4">
+                <label for="new-password" class="text-sm ">New Password</label>
+                <input 
+                    id="new-password" 
+                    type="password" 
+                    placeholder="123456789"
+                    formControlName="newPassword" 
+                    class="appearance-none relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md  hover:border-blue-500 btn-height"   
+                >
+                <span *ngIf="profileForm.get('changePassword.newPassword')?.touched && profileForm.get('changePassword.newPassword')?.dirty" class="text-sm text-red-600">
+                    <span *ngIf="profileForm.get('changePassword.newPassword')?.hasError('required')">
+                        Please write your password.
+                    </span>
+                    <span *ngIf="profileForm.get('changePassword.newPassword')?.hasError('minlength')">
+                        The minimum length was not added.
+                    </span>
+                    <span *ngIf="profileForm.get('changePassword.newPassword')?.hasError('maxlength')">
+                        The maximum length was exceeded.
+                    </span>
+                </span>
+                
+            </div>
+    
+            <!-- Confirm Password -->
+            <div class="w-full mb-4">
+                <label for="confirm-password" class="text-sm ">Confirm Password</label>
+                <input 
+                    id="confirm-password" 
+                    type="password" 
+                    placeholder="123456789"
+                    formControlName="confirmedPassword" 
+                    class="appearance-none relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md  hover:border-blue-500 btn-height"   
+                >
+                <span *ngIf="profileForm.get('changePassword.confirmedPassword')?.touched && profileForm.get('changePassword.confirmedPassword')?.dirty" class="text-sm text-red-600">
+                    <span *ngIf="profileForm.get('changePassword.confirmedPassword')?.hasError('required')">
+                        Please write your confirmation password.
+                    </span>
+                    <span *ngIf="profileForm.get('changePassword.confirmedPassword')?.hasError('minlength')">
+                        The minimum length was not added.
+                    </span>
+                    <span *ngIf="profileForm.get('changePassword.confirmedPassword')?.hasError('maxlength')">
+                        The maximum length was exceeded.
+                    </span>
+                </span>
+            </div>
         </div>
+
         
-        <button type="submit" class=" group relative w-full flex justify-center items-center py-1 px-4 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2   focus:ring-yellow-500 btn-height">
+        <button 
+        type="submit" 
+        [disabled]="!profileForm.valid"
+        class="btn-disabled relative w-full flex justify-center items-center py-1 px-4 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-yellow-500 btn-height"
+        >
         Save Changes
         </button>
-
       </form>
+
       
   </div>
 

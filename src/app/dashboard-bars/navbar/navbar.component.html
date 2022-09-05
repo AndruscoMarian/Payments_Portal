@@ -15,7 +15,7 @@
               class="flex-justify mr-2  text-sm font-bold drop-down-btn active:text-blue-900 hover:text-yellow-500" 
               (click) = 'toggleDropDown()' 
               [ngClass]="dropDownString=='true'? 'text-yellow-500':'text-white'"
-              >Albus Dumbledore  
+              >{{userFullName}}
                 <i class="fas fa-arrow-circle-down ml-2"></i>
               </button>
           </div>
@@ -29,7 +29,7 @@
             </div>
           </div>
         </div>
-        <img src="../../../assets/albus.PNG" alt="" class="w-10 h-10 rounded-full">
+        <img src={{profilePicture}} alt="" class="w-10 h-10 rounded-full">
       </div>
     </nav>
   </div>

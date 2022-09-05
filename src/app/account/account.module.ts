@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ResetComponent } from './reset-password/reset.component';
 import { SignupComponent } from './signup/signup.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,6 +18,7 @@ import { SignupComponent } from './signup/signup.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       {path: 'signup', component: SignupComponent},
       {path: 'reset', component: ResetComponent},

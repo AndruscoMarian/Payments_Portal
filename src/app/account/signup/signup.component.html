@@ -1,6 +1,6 @@
 <div class="h-screen flex items-center justify-center w-full">
       <!-- Left Card Start -->
-      <div class="left-card h-full bg-blue-900 w-4/12 flex items-center justify-center flex-col ">
+      <div class="h-full bg-blue-900 w-4/12 flex items-center justify-center flex-col ">
         <h2 class=" text-center text-2xl font-medium text-white">
           Welcome to
         </h2>
@@ -28,35 +28,161 @@
             </div>
           </div>
   
-          <form class=" shadow-lg p-5 bg-white border border-gray-300 rounded-xl max-width h-auto flex items-center justify-between flex-col">
+          <form 
+            (ngSubmit)="save()"
+            [formGroup]="signupForm"
+            class=" shadow-lg p-5 bg-white border border-gray-300 rounded-xl max-width h-auto flex items-center justify-between flex-col"
+          >
 
+            <!-- First name -->
             <div class="w-full mb-6">
-                <label for="text" class="text-sm ">First name</label>
-                <input id="firs-name" name="text" type="text" autocomplete="text" class="appearance-none  relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md focus:border-blue-500 focus:z-10 btn-height" placeholder="First Name">
+                <label for="first-name" class="text-sm ">First name</label>
+                <input 
+                  id="first-name" 
+                  type="text" 
+                  placeholder="First Name"
+                  formControlName = 'first_name'
+                  class="appearance-none  relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md hover:border-blue-500  btn-height" 
+                >
+                <span *ngIf="signupForm.get('first_name')?.touched && signupForm.get('first_name')?.dirty" class="text-sm text-red-600">
+                  <span *ngIf="signupForm.get('first_name')?.hasError('required')">
+                      Please write your first name.
+                  </span>
+                  <span *ngIf="signupForm.get('first_name')?.hasError('minlength')">
+                      The minimum length was not added.
+                  </span>
+              </span>
             </div>
+
+            <!-- Last name -->
             <div class="w-full mb-6">
-                <label for="text" class="text-sm ">Last name</label>
-                <input id="last-name" name="text" type="text" autocomplete="text" class="appearance-none  relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md focus:border-blue-500 focus:z-10 btn-height" placeholder="Last Name">
+              <label for="last-name" class="text-sm ">Last name</label>
+              <input 
+                id="last-name" 
+                type="text" 
+                placeholder="Last Name"
+                formControlName = 'last_name'
+                class="appearance-none  relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md hover:border-blue-500  btn-height" 
+              >
+              <span *ngIf="signupForm.get('last_name')?.touched && signupForm.get('last_name')?.dirty" class="text-sm text-red-600">
+                <span *ngIf="signupForm.get('last_name')?.hasError('required')">
+                    Please write your last name.
+                </span>
+                <span *ngIf="signupForm.get('last_name')?.hasError('minlength')">
+                    The minimum length was not added.
+                </span>
+              </span>
             </div>
+
+            <!-- Email address -->
             <div class="w-full mb-6">
-                <label for="email-address" class="text-sm ">Email address</label>
-                <input id="email-address" name="email" type="email" autocomplete="email" class="appearance-none text-sm  relative block w-full px-3 border border-gray-300 placeholder-gray-300 text-gray-900 rounded-md focus:border-blue-500 focus:z-10 btn-height" placeholder="darius@gmail.com">
+              <label for="email" class="text-sm ">Email address</label>
+              <input 
+                id="email" 
+                type="email" 
+                placeholder="Email address"
+                formControlName = 'email'
+                class="appearance-none  relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md hover:border-blue-500  btn-height" 
+              >
+              <span *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.dirty" class="text-sm text-red-600">
+                <span *ngIf="signupForm.get('email')?.hasError('required')">
+                    Email is required.
+                </span>
+                <span *ngIf="signupForm.get('email')?.hasError('email')">
+                    You must enter a valid.
+                </span>
+              </span>
             </div>
+
+            <!-- Role -->
             <div class="w-full mb-6">
-                <label for="password" class="text-sm ">New Password</label>
-                <input id="new-password" name="password" type="password" autocomplete="current-password" class="appearance-none relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md  focus:border-blue-500 focus:z-10 btn-height"   placeholder="1234qwe,.">
+              <label for="role" class="text-sm ">Role</label>
+              <input 
+                id="role" 
+                type="text" 
+                placeholder="Role"
+                formControlName = 'role'
+                class="appearance-none  relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md hover:border-blue-500  btn-height" 
+              >
+              <span *ngIf="signupForm.get('role')?.touched && signupForm.get('role')?.dirty" class="text-sm text-red-600">
+                <span *ngIf="signupForm.get('role')?.hasError('required')">
+                    Please write your role.
+                </span>
+                <span *ngIf="signupForm.get('role')?.hasError('maxlength')">
+                    The maximum length was exceeded.
+                </span>
+              </span>
             </div>
-            <div class="w-full mb-6">
-                <label for="password" class="text-sm ">Confirm Password</label>
-                <input id="conf-password" name="password" type="password" autocomplete="current-password" class="appearance-none relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md  focus:border-blue-500 focus:z-10 btn-height"   placeholder="1234qwe,.">
+
+            <!-- Password group -->
+            <div class="w-full" formGroupName="passwordGroup">
+              <!-- Password -->
+              <div class="w-full mb-6">
+                <label for="password" class="text-sm ">Password</label>
+                <input 
+                  id="password" 
+                  type="password" 
+                  placeholder="Password"
+                  formControlName = 'password'
+                  class="appearance-none  relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md hover:border-blue-500  btn-height" 
+                >
+                <span *ngIf="signupForm.get('passwordGroup.password')?.touched && signupForm.get('passwordGroup.password')?.dirty" class="text-sm text-red-600">
+                  <span *ngIf="signupForm.get('passwordGroup.password')?.hasError('required')">
+                      Please write your password.
+                  </span>
+                  <span *ngIf="signupForm.get('passwordGroup.password')?.hasError('minlength')">
+                      The minimum length was not added.
+                  </span>
+                  <span *ngIf="signupForm.get('passwordGroup.password')?.hasError('maxlength')">
+                      The maximum length was exceeded.
+                  </span>
+                </span>
+              </div>
+  
+              <!-- Confirm Password -->
+              <div class="w-full mb-6">
+                <label for="confirm-password" class="text-sm ">Confirm Password</label>
+                <input 
+                  id="confirm-password" 
+                  type="password" 
+                  placeholder="Confirm Password"
+                  formControlName = 'confirm_password'
+                  class="appearance-none  relative block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md hover:border-blue-500  btn-height" 
+                >
+                <span *ngIf="signupForm.get('passwordGroup.confirm_password')?.touched && signupForm.get('passwordGroup.confirm_password')?.dirty" class="text-sm text-red-600">
+                  <span *ngIf="signupForm.get('passwordGroup.confirm_password')?.hasError('required')">
+                      Please write your confirmation password.
+                  </span>
+                  <span *ngIf="signupForm.get('passwordGroup.confirm_password')?.hasError('minlength')">
+                      The minimum length was not added.
+                  </span>
+                  <span *ngIf="signupForm.get('passwordGroup.confirm_password')?.hasError('maxlength')">
+                      The maximum length was exceeded.
+                  </span>
+                </span>
+              </div>
             </div>
             
-            <button type="submit" class=" group relative w-full flex justify-center items-center py-1 px-4 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2   focus:ring-yellow-500 btn-height">
-            <a routerLink='/main-dashboard' class="text-sm ">Create Account <i class="fas fa-arrow-right ml-2"></i></a> 
+            <button 
+              type="submit" 
+              [disabled]="!signupForm.valid"
+              class="btn-disabled group relative w-full flex justify-center items-center py-1 px-4 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-yellow-500 btn-height mb-4">
+                    Submit Form 
+            </button>
+
+            <button 
+              type="button" 
+              class="btn-disabled group relative w-full flex justify-center items-center py-1 px-4 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-yellow-500 btn-height">
+                <a 
+                  routerLink='/main-dashboard' 
+                  class="text-sm ">
+                    Create Account <i class="fas fa-arrow-right ml-2"></i>
+                </a> 
             </button>
   
           </form>
   
+          <!-- Random text -->
           <p class=" text-xs text-center">
             Lorem ipsum dolor sit amet. Lorem ipsum dolor sit ametdolor sit amet.
           </p>
