@@ -10,7 +10,7 @@
         [formGroup]="userForm"
         class=" p-5 max-width h-auto flex items-center justify-between flex-col">
 
-
+        <!-- First name -->
             <label for="first_name" class="text-sm w-full mb-6">First name
             <input 
                 id="first_name" 
@@ -20,7 +20,8 @@
                 class="appearance-none  block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md  btn-height" >
                 <span class="text-sm text-red-600">{{message.firstNameMessage.finalMessage}}</span>
             </label>
-        <!-- ------------------------- -->
+
+        <!-- Last name -->
             <label for="last_name" class="text-sm w-full mb-6">Last name
                 <input 
                     id="last_name" 
@@ -30,7 +31,8 @@
                     class="appearance-none  block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md btn-height">
                 <span class="text-sm text-red-600">{{message.lastNameMessage.finalMessage}}</span>
             </label>
-        <!-- ------------------------- -->
+
+        <!-- Email -->
             <label for="email" class="text-sm w-full mb-6">Email address
                 <input 
                     id="email" 
@@ -40,7 +42,8 @@
                     class="appearance-none text-sm  block w-full px-3 border border-gray-300 placeholder-gray-300 text-gray-900 rounded-md btn-height">
                 <span class="text-sm text-red-600">{{message.emailMessage.finalMessage}}</span>
             </label>
-        <!-- ------------------------- -->
+
+        <!-- Role -->
             <label for="role" class="text-sm w-full mb-6">Role
                 <input 
                     id="role" 
@@ -50,7 +53,7 @@
                     class="appearance-none block w-full px-3 border border-gray-300 text-sm placeholder-gray-300 text-gray-900 rounded-md  btn-height">
                 <span class="text-sm text-red-600">{{message.roleMessage.finalMessage}}</span>  
             </label>  
-        <!-- ------------------------- -->
+        <!-- Permission -->
             <label for="permission" class="text-sm w-full mb-6">Permission
                 <input 
                     id="permission" 

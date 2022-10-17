@@ -25,6 +25,9 @@ export class SuperUserComponent implements OnInit{
   users:IUser[]=[];
   userId:number | null = null;
 
+  totalLength!:number;
+  page:number = 1;
+
   usersStatus$!: Observable<string>;
   users$!: Observable<IUser[]>;
   errorMessage$!: Observable<string>;
@@ -63,8 +66,7 @@ export class SuperUserComponent implements OnInit{
               private route:ActivatedRoute,
               // ngrx
               private store: Store<State>
-              ) { }
-
+              ) { }  
 
   performFilter(filterBy:string, name:string):IUser[]{
     filterBy = filterBy.toLocaleLowerCase();
@@ -97,6 +99,7 @@ export class SuperUserComponent implements OnInit{
       next: users=>{
         this.users = users;
         this.filteredUsers = this.users;
+        this.totalLength = users.length;
       },
       error: err => this.errorMessage = err
     });

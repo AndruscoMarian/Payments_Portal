@@ -17,7 +17,7 @@ export class TransactionsService {
 
     getTransactions():Observable<ITransaction[]>{
         return this.http.get<ITransaction[]>(this.transactionsUrl).pipe(
-            tap(data => console.log('Transactions')),
+            tap(data => console.log('Transactions: ', JSON.stringify(data))),
             catchError(this.handleError),
             take(1),
             delay(500)

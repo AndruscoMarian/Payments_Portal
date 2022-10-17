@@ -11,25 +11,31 @@ export class UsersService {
     private constants = Constants;
     private usersUrl = `${this.constants.APPURL}users`;
 
-    users$ =  this.http.get<IUser[]>(this.usersUrl)
-        .pipe(
-            map(users => 
-                users.map(user => ({
-                    ...user,
-                    full_name: `${user.first_name} ${user.last_name}`
-                } as IUser))),
-            tap(i => console.log('Users: ', JSON.stringify(i))),
-            shareReplay(1),
-            catchError(this.handleError),
-            take(1)
-        );
+    // users$ =  this.http.get<IUser[]>(this.usersUrl)
+    //     .pipe(
+    //         map(users => 
+    //             users.map(user => ({
+    //                 ...user,
+    //                 full_name: `${user.first_name} ${user.last_name}`
+    //             } as IUser))),
+    //         tap(i => console.log('Users: ', JSON.stringify(i))),
+    //         shareReplay(1),
+    //         catchError(this.handleError),
+    //         take(1)
+    //     );
 
     constructor(private http: HttpClient){}
 
     getUsers():Observable<IUser[]>{
         return this.http.get<IUser[]>(this.usersUrl)
             .pipe(
-                tap(i => console.log('Users: ', JSON.stringify(i))),
+                map(users => users.map(
+                    user => ({
+                        ...user,
+                        email: `${user.first_name}_${user.last_name}@gmail.com`
+                    } as IUser)
+                )),
+                // tap(i => console.log('Users: ', JSON.stringify(i))),
                 catchError(this.handleError),
                 take(1),
                 delay(500)

@@ -1032,7 +1032,6 @@
       "first_name": "Bogdan",
       "last_name": "Adaman",
       "id": 1007,
-      "email": "Bogdan_Adaman@gmail.com",
       "password": "poilkjmnb",
       "profile_picture": "../../../assets/b7.jpg",
       "role": "User",
@@ -1176,6 +1175,156 @@
       "first_name": "Stefan",
       "last_name": "Calugar",
       "id": 1022,
+      "email": "Stefan_Calugar@gmail.com",
+      "password": "999666333",
+      "profile_picture": "../../../assets/b3.jpg",
+      "role": "Designer",
+      "permissions": "Genin"
+    },
+    {
+      "first_name": "Catalin",
+      "last_name": "Adaman",
+      "id": 1070,
+      "email": "Catalin_Para@gmail.com",
+      "password": "poilkjmnb",
+      "profile_picture": "../../../assets/b7.jpg",
+      "role": "User",
+      "permissions": "Genin"
+    },
+    {
+      "first_name": "Norbi",
+      "last_name": "King",
+      "id": 1090,
+      "email": "Norbi_Adams@gmail.com",
+      "password": "678yuibub",
+      "profile_picture": "../../../assets/b9.jpg",
+      "role": "Designer",
+      "permissions": "Chunin"
+    },
+    {
+      "first_name": "Darius",
+      "last_name": "Berenghi",
+      "id": 1100,
+      "email": "Darius_Berenghi@gmail.com",
+      "password": "789456123",
+      "profile_picture": "../../../assets/b10.jpg",
+      "role": "UX/UI Specialist",
+      "permissions": "Chunin"
+    },
+    {
+      "first_name": "Mirela",
+      "last_name": "Baciu",
+      "id": 1110,
+      "email": "Mirabela_Baciu@gmail.com",
+      "password": "yuihjk908",
+      "profile_picture": "../../../assets/b11.jpg",
+      "role": "User",
+      "permissions": "Genin"
+    },
+    {
+      "first_name": "Andreea",
+      "last_name": "Cretu",
+      "id": 1120,
+      "email": "Andreea_Cretu@gmail.com",
+      "password": "dfgcvbert",
+      "profile_picture": "../../../assets/b12.jpg",
+      "role": "Tester",
+      "permissions": "Chunin"
+    },
+    {
+      "first_name": "Vladimir",
+      "last_name": "Ionescu",
+      "id": 1130,
+      "email": "Vladimir_Ionescu@gmail.com",
+      "password": "gjkdlp908",
+      "profile_picture": "../../../assets/b13.jpg",
+      "role": "Tester",
+      "permissions": "Chunin"
+    },
+    {
+      "first_name": "Valentin",
+      "last_name": "Caprioreanu",
+      "id": 1140,
+      "email": "Valentin_Caprioreanu@gmail.com",
+      "password": "903d458",
+      "profile_picture": "../../../assets/b14.jpg",
+      "role": "User",
+      "permissions": "Genin"
+    },
+    {
+      "first_name": "Garofita",
+      "last_name": "Magdalena",
+      "id": 1150,
+      "email": "Garofita_Magdalena@gmail.com",
+      "password": "lolkikjuj",
+      "profile_picture": "../../../assets/b15.jpg",
+      "role": "User",
+      "permissions": "Genin"
+    },
+    {
+      "first_name": "Bella",
+      "last_name": "Bucur",
+      "id": 1160,
+      "email": "Bella_Bucur@gmail.com",
+      "password": "ijn9ij0ok",
+      "profile_picture": "../../../assets/b17.jpg",
+      "role": "User",
+      "permissions": "Genin"
+    },
+    {
+      "first_name": "Marcus",
+      "last_name": "Beregata",
+      "id": 1170,
+      "email": "Marcurs_Beregata@gmail.com",
+      "password": "lkolkolko",
+      "profile_picture": "../../../assets/b18.jpg",
+      "role": "Developer",
+      "permissions": "Genin"
+    },
+    {
+      "first_name": "Ioana",
+      "last_name": "Lavinia",
+      "id": 1180,
+      "email": "Ioana_Lavinia@gmail.com",
+      "password": "asadeccer",
+      "profile_picture": "../../../assets/b19.jpg",
+      "role": "User",
+      "permissions": "Genin"
+    },
+    {
+      "first_name": "Iancu",
+      "last_name": "Marian",
+      "id": 1190,
+      "email": "Bella_Bucur@gmail.com",
+      "password": "ijn9ij0ok",
+      "profile_picture": "../../../assets/b20.jpg",
+      "role": "User",
+      "permissions": "Genin"
+    },
+    {
+      "first_name": "Macaron",
+      "last_name": "Ital",
+      "id": 1200,
+      "email": "Marcurs_Beregata@gmail.com",
+      "password": "lkolkolko",
+      "profile_picture": "../../../assets/b2.jpg",
+      "role": "Developer",
+      "permissions": "Genin"
+    },
+    {
+      "first_name": "Ioana",
+      "last_name": "Lavinia",
+      "id": 1210,
+      "email": "Ioana_Lavinia@gmail.com",
+      "password": "asadeccer",
+      "profile_picture": "../../../assets/b1.jpg",
+      "role": "User",
+      "permissions": "Genin"
+    },
+    {
+      "first_name": "Stefan",
+      "last_name": "Calugar",
+      "id": 1220,
       "email": "Stefan_Calugar@gmail.com",
       "password": "999666333",
       "profile_picture": "../../../assets/b3.jpg",
@@ -2209,158 +2358,6 @@
           "total_price": 0
         }
       ]
-    }
-  ],
-  "users2": [
-    {
-      "first_name": "Catalin",
-      "last_name": "Adaman",
-      "id": 1007,
-      "email": "Catalin_Para@gmail.com",
-      "password": "poilkjmnb",
-      "profile_picture": "../../../assets/b7.jpg",
-      "role": "User",
-      "permissions": "Genin"
-    },
-    {
-      "first_name": "Norbi",
-      "last_name": "King",
-      "id": 1009,
-      "email": "Norbi_Adams@gmail.com",
-      "password": "678yuibub",
-      "profile_picture": "../../../assets/b9.jpg",
-      "role": "Designer",
-      "permissions": "Chunin"
-    },
-    {
-      "first_name": "Darius",
-      "last_name": "Berenghi",
-      "id": 1010,
-      "email": "Darius_Berenghi@gmail.com",
-      "password": "789456123",
-      "profile_picture": "../../../assets/b10.jpg",
-      "role": "UX/UI Specialist",
-      "permissions": "Chunin"
-    },
-    {
-      "first_name": "Mirela",
-      "last_name": "Baciu",
-      "id": 1011,
-      "email": "Mirabela_Baciu@gmail.com",
-      "password": "yuihjk908",
-      "profile_picture": "../../../assets/b11.jpg",
-      "role": "User",
-      "permissions": "Genin"
-    },
-    {
-      "first_name": "Andreea",
-      "last_name": "Cretu",
-      "id": 1012,
-      "email": "Andreea_Cretu@gmail.com",
-      "password": "dfgcvbert",
-      "profile_picture": "../../../assets/b12.jpg",
-      "role": "Tester",
-      "permissions": "Chunin"
-    },
-    {
-      "first_name": "Vladimir",
-      "last_name": "Ionescu",
-      "id": 1013,
-      "email": "Vladimir_Ionescu@gmail.com",
-      "password": "gjkdlp908",
-      "profile_picture": "../../../assets/b13.jpg",
-      "role": "Tester",
-      "permissions": "Chunin"
-    },
-    {
-      "first_name": "Valentin",
-      "last_name": "Caprioreanu",
-      "id": 1014,
-      "email": "Valentin_Caprioreanu@gmail.com",
-      "password": "903d458",
-      "profile_picture": "../../../assets/b14.jpg",
-      "role": "User",
-      "permissions": "Genin"
-    },
-    {
-      "first_name": "Garofita",
-      "last_name": "Magdalena",
-      "id": 1015,
-      "email": "Garofita_Magdalena@gmail.com",
-      "password": "lolkikjuj",
-      "profile_picture": "../../../assets/b15.jpg",
-      "role": "User",
-      "permissions": "Genin"
-    },
-    {
-      "first_name": "Bella",
-      "last_name": "Bucur",
-      "id": 1016,
-      "email": "Bella_Bucur@gmail.com",
-      "password": "ijn9ij0ok",
-      "profile_picture": "../../../assets/b17.jpg",
-      "role": "User",
-      "permissions": "Genin"
-    },
-    {
-      "first_name": "Marcus",
-      "last_name": "Beregata",
-      "id": 1017,
-      "email": "Marcurs_Beregata@gmail.com",
-      "password": "lkolkolko",
-      "profile_picture": "../../../assets/b18.jpg",
-      "role": "Developer",
-      "permissions": "Genin"
-    },
-    {
-      "first_name": "Ioana",
-      "last_name": "Lavinia",
-      "id": 1018,
-      "email": "Ioana_Lavinia@gmail.com",
-      "password": "asadeccer",
-      "profile_picture": "../../../assets/b19.jpg",
-      "role": "User",
-      "permissions": "Genin"
-    },
-    {
-      "first_name": "Iancu",
-      "last_name": "Marian",
-      "id": 1019,
-      "email": "Bella_Bucur@gmail.com",
-      "password": "ijn9ij0ok",
-      "profile_picture": "../../../assets/b20.jpg",
-      "role": "User",
-      "permissions": "Genin"
-    },
-    {
-      "first_name": "Macaron",
-      "last_name": "Ital",
-      "id": 1020,
-      "email": "Marcurs_Beregata@gmail.com",
-      "password": "lkolkolko",
-      "profile_picture": "../../../assets/b2.jpg",
-      "role": "Developer",
-      "permissions": "Genin"
-    },
-    {
-      "first_name": "Ioana",
-      "last_name": "Lavinia",
-      "id": 1021,
-      "email": "Ioana_Lavinia@gmail.com",
-      "password": "asadeccer",
-      "profile_picture": "../../../assets/b1.jpg",
-      "role": "User",
-      "permissions": "Genin"
-    },
-    {
-      "first_name": "Stefan",
-      "last_name": "Calugar",
-      "id": 1022,
-      "email": "Stefan_Calugar@gmail.com",
-      "password": "999666333",
-      "profile_picture": "../../../assets/b3.jpg",
-      "role": "Designer",
-      "permissions": "Genin"
     }
   ]
 }

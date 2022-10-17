@@ -67,10 +67,14 @@
         <!-- page boxes start -->
         <div class="mb-4 flex justify-around flex-wrap h-auto w-full"
         >
-        <!-- { *ngIf="users$ | async as users"} -->
             <div 
             class="w-52 h-52 mb-4 flex justify-between flex-col items-center p-2.5 rounded-2xl bg-white shadow-lg hover:bg-blue-900 hover:text-white" 
-            *ngFor = 'let user of filteredUsers'>
+            *ngFor = "let user of filteredUsers | 
+                paginate: {
+                    itemsPerPage: 10, 
+                    currentPage: page, 
+                    totalItems: totalLength
+                }">
                 <a 
                 [routerLink]="[user.id]"
                 class="w-full h-full overflow-hidden flex justify-center items-center rounded-2xl">
@@ -85,8 +89,10 @@
         </div>
         <!-- page boxes end -->
 
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+
         <!-- page navigation start -->
-        <nav class="bg-white flex items-center justify-between border-t border-gray-200 page-nav w-full ">
+        <!-- <nav class="bg-white flex items-center justify-between border-t border-gray-200 page-nav w-full ">
             <div class="relative w-28 h-4 font-medium">
                 <a class=" page-nav-btns">
                     <i class="fas fa-arrow-left mr-2 text-sm"></i>
@@ -104,8 +110,9 @@
                     <i class="fas fa-arrow-right ml-2 text-sm"></i>
                 </a>
             </div>
-            
-        </nav>
+        </nav> -->
+        <!-- page navigation end -->
+
         <div 
             *ngIf="users$ | async as users"
             class="mb-4 flex justify-around flex-wrap h-auto w-full mt-10">
@@ -124,7 +131,7 @@
                 </div>
             </div>
         </div>
-        <!-- page navigation end -->
+        
     </div>
     
 </div>

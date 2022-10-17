@@ -42,6 +42,9 @@ import { TransactionsEffects } from './state_transactions/transactions_effects';
 import { users } from './state_users/users_reducer';
 import { UsersEffects } from './state_users/users_effects';
 
+// Pagination module
+import {NgxPaginationModule} from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     UserProfileComponent,
@@ -76,6 +79,7 @@ import { UsersEffects } from './state_users/users_effects';
     FormsModule,
     PortalModule,
     OverlayModule,
+    NgxPaginationModule,
     RouterModule.forChild([
   
           {path: 'profile', component:UserProfileComponent},
