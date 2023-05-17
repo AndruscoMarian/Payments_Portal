@@ -89,7 +89,12 @@
         </div>
         <!-- page boxes end -->
 
-        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        <pagination-controls 
+            class="w-full flex justify-center p-Control"
+            (pageChange)="page = $event"
+            previousLabel="Prev"
+            nextLabel="Next">
+        </pagination-controls>
 
         <!-- page navigation start -->
         <!-- <nav class="bg-white flex items-center justify-between border-t border-gray-200 page-nav w-full ">

@@ -44,6 +44,8 @@ import { UsersEffects } from './state_users/users_effects';
 
 // Pagination module
 import {NgxPaginationModule} from 'ngx-pagination';
+import { NgChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -79,6 +81,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     FormsModule,
     PortalModule,
     OverlayModule,
+    NgChartsModule,
     NgxPaginationModule,
     RouterModule.forChild([
   

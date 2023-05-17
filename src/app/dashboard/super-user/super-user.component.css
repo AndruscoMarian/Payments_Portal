@@ -14,3 +14,7 @@
 .flex-justify{
     @apply flex items-center justify-center
  }
+
+ .p-Control ::ng-deep .ngx-pagination {
+    margin-bottom: 0;
+}
